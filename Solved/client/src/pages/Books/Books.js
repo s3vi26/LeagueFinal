@@ -26,9 +26,13 @@ class Books extends Component {
       author: author,
       synopsis:synopsis,
     }
-    //console.log(bookdata)
+    console.log(bookData)
      API.saveBook(bookData)
       .then(res=>console.log(res.data))
+
+   // API.getSummoner()
+
+      //.then(res=>console.log(res))
 
     //console.log("yay")
   }
@@ -37,7 +41,10 @@ class Books extends Component {
     API.getBooks()
       .then(res => this.setState({ books: res.data }))
       .catch(err => console.log(err));
-  };
+
+
+  
+   };
 
   render() {
     return (
@@ -76,6 +83,7 @@ class Books extends Component {
             )}
           </Col>
         </Row>
+        <FormBtn onClick={this.handleClick}>API</FormBtn>
       </Container>
     );
   }
