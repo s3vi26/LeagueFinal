@@ -4,7 +4,7 @@ import Nav from "./components/Nav";
 // import "./styles/styles.css"
 import "./styles.css"
 const App = () => (
-  <div>
+  <div className = "main-container">
     <Nav />
     <Books />
   </div>

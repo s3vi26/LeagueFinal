@@ -50,18 +50,33 @@ class Summonerz extends Component {
       <Container fluid>
         <Row>
           <Col size="md-6">
+          <h1 className ="on-top">Enter your summoner info here.</h1>
             <Jumbotron>
+<<<<<<< HEAD
             <h1>Summoners!</h1>
             </Jumbotron>
             <form>
               <Input id="name1" name="name1" placeholder="Summoner Name 1 (required)" />
               <Input id ="name2" name="name2" placeholder="Summoner Name 2 (required)" />
               <FormBtn onClick={this.handleClick}>Submit Summoners</FormBtn>
+=======
+             
+            </Jumbotron>
+            <form>
+              <Input id="title" name="title" placeholder="Summoner 1 (required)" />
+              <Input id ="author" name="author" placeholder="Summoner 2 (required)" />
+              <TextArea id ="synopsis" name="synopsis" placeholder="Synopsis (Optional)" />
+              <FormBtn onClick={this.handleClick}>Submit Book</FormBtn>
+>>>>>>> 33092f747c9212f7de1af50133bcd7c7bfea8a1f
             </form>
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron> 
+<<<<<<< HEAD
               <h1>Summoners I've Battled</h1>
+=======
+              <h1>Match History</h1>
+>>>>>>> 33092f747c9212f7de1af50133bcd7c7bfea8a1f
             </Jumbotron>
             {this.state.books.length ? (
               <List>
