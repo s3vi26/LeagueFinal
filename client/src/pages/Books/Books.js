@@ -51,8 +51,9 @@ class Books extends Component {
       <Container fluid>
         <Row>
           <Col size="md-6">
+          <h1 className ="on-top">Enter your summoner info here.</h1>
             <Jumbotron>
-              <h1>Enter your summoner info here.</h1>
+             
             </Jumbotron>
             <form>
               <Input id="title" name="title" placeholder="Summoner 1 (required)" />

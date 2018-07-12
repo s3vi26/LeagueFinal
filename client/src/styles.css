@@ -1,4 +1,21 @@
+body {
+    background-image: url("lol.jpg");
+}
+
 .bg-primary {
     background: blue !important; 
 
 }
+
+.jumbotron {
+    opacity: .1;
+}
+
+.on-top{
+    color: white;
+    position: relative;
+    top: 3.5em;
+}
+
+
+
