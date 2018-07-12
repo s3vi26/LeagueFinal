@@ -1,13 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const bookSchema = new Schema({
-  title: { type: String, required: true },
-  author: { type: String, required: true },
-  synopsis: String,
+const sumSchema = new Schema({
+  name: { type: String, required: true },
+  accountID: { type: Number, required: true },
   date: { type: Date, default: Date.now }
 });
 
-const Book = mongoose.model("Book", bookSchema);
+const Summonerz = mongoose.model("Summonerz", sumSchema);
 
-module.exports = Book;
+module.exports = Summonerz;
