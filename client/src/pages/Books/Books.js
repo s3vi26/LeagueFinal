@@ -4,11 +4,11 @@ import API from "../../utils/API";
 import DeleteBtn from "../../components/DeleteBtn";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn } from "../../components/Form";
+import { Input, FormBtn } from "../../components/Form";
 
-class Books extends Component {
+class Summonerz extends Component {
   state = {
-    books: []
+    summoners: []
   };
 
   componentDidMount() {
@@ -17,17 +17,16 @@ class Books extends Component {
 
   handleClick=event=>{
     event.preventDefault();
-    var title=document.querySelector("#title").value
-    var author=document.querySelector("#author").value
-    var synopsis=document.querySelector("#synopsis").value
+    var name1=document.querySelector("#name1").value
+    var name2=document.querySelector("#name2").value
 
-    var bookData={
-      title: title,
-      author: author,
-      synopsis:synopsis,
+    var sumData={
+      name1: name2,
+      name2: name2,
+     
     }
-    console.log(bookData)
-     API.saveBook(bookData)
+    console.log(sumData)
+     API.saveSums(sumData)
       .then(res=>console.log(res.data))
 
    // API.getSummoner()
@@ -37,9 +36,9 @@ class Books extends Component {
     //console.log("yay")
   }
 
-  loadBooks = () => {
-    API.getBooks()
-      .then(res => this.setState({ books: res.data }))
+  loadSums = () => {
+    API.getSums()
+      .then(res => this.setState({ summoners: res.data }))
       .catch(err => console.log(err));
 
 
@@ -52,18 +51,17 @@ class Books extends Component {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>What Books Should I Read?</h1>
+            <h1>Summoners!</h1>
             </Jumbotron>
             <form>
-              <Input id="title" name="title" placeholder="Title (required)" />
-              <Input id ="author" name="author" placeholder="Author (required)" />
-              <TextArea id ="synopsis" name="synopsis" placeholder="Synopsis (Optional)" />
-              <FormBtn onClick={this.handleClick}>Submit Book</FormBtn>
+              <Input id="name1" name="name1" placeholder="Summoner Name 1 (required)" />
+              <Input id ="name2" name="name2" placeholder="Summoner Name 2 (required)" />
+              <FormBtn onClick={this.handleClick}>Submit Summoners</FormBtn>
             </form>
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron> 
-              <h1>Books On My List</h1>
+              <h1>Summoners I've Battled</h1>
             </Jumbotron>
             {this.state.books.length ? (
               <List>
@@ -89,4 +87,4 @@ class Books extends Component {
   }
 }
 
-export default Books;
+export default Summonerz;
