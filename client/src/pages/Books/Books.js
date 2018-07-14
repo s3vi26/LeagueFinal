@@ -23,11 +23,18 @@ class Summonerz extends Component {
     var sumData={
       name1: name1,
       name2: name2,
-     
     }
     console.log(sumData)
-     API.saveSums(sumData)
-      .then(res=>console.log(res.data))
+    Promise.all([API.getSummoner(name1),API.getSummoner(name2)])
+      .then((ids) => {
+        const newSumData = {
+          accountId1: ids[0],
+          accountId2: ids[1],
+          ...sumData
+        };
+        API.saveSums(newSumData)
+          .then(res=>console.log(res.data))
+      })
 
    // API.getSummoner()
 

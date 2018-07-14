@@ -13,4 +13,9 @@ router
   .put(booksController.update)
   .delete(booksController.remove);
 
+router
+  .get("/retrieve", (req, res, next) => {
+    
+  })
+
 module.exports = router;
