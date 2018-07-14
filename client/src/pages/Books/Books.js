@@ -12,7 +12,7 @@ class Summonerz extends Component {
   };
 
   componentDidMount() {
-    this.loadBooks();
+    this.loadSums();
   }
 
   handleClick=event=>{
@@ -21,7 +21,7 @@ class Summonerz extends Component {
     var name2=document.querySelector("#name2").value
 
     var sumData={
-      name1: name2,
+      name1: name1,
       name2: name2,
      
     }
@@ -60,15 +60,15 @@ class Summonerz extends Component {
               <FormBtn onClick={this.handleClick}>Submit Summoners</FormBtn>
             </form>
           </Col>
-          <Col size="md-6 sm-12">
+          {/* <Col size="md-6 sm-12">
             <Jumbotron> 
-              <h1>Match History</h1>
+              <h1>Summoners I've Battled</h1>
             </Jumbotron>
-            {this.state.books.length ? (
+            {this.state.summoners.length ? (
               <List>
-                {this.state.books.map(book => (
-                  <ListItem key={book._id}>
-                    <a href={"/books/" + book._id}>
+                {this.state.summoners.map(book => (
+                  <ListItem key={summoner._id}>
+                    <a href={"/books/" + summoners._id}>
                       <strong>
                         {book.title} by {book.author}
                       </strong>
@@ -76,11 +76,11 @@ class Summonerz extends Component {
                     <DeleteBtn />
                   </ListItem>
                 ))}
-              </List>
-            ) : (
+              </List> */}
+            {/* ) : (
               <h3>No Results to Display</h3>
             )}
-          </Col>
+          </Col> */}
         </Row>
         <FormBtn onClick={this.handleClick}>API</FormBtn>
       </Container>

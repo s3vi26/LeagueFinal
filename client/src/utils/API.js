@@ -33,19 +33,19 @@ export default {
 },
 
   // Gets all books
-  getSums: function() {
-    return axios.get("/api/books");
+  getAllSums: function() {
+    return axios.get("/api/summoners");
   },
   // Gets the book with the given id
   getSums: function(id) {
-    return axios.get("/api/books/" + id);
+    return axios.get("/api/summoners/" + id);
   },
   // Deletes the book with the given id
   deleteSums: function(id) {
-    return axios.delete("/api/books/" + id);
+    return axios.delete("/api/summoners/" + id);
   },
   // Saves a book to the database
-  saveSums: function(bookData) {
-    return axios.post("/api/books", bookData);
+  saveSums: function(sumData) {
+    return axios.post("/api/summoners", sumData);
   }
 };
