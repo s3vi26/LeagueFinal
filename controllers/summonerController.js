@@ -1,5 +1,4 @@
 const summoner = require ('../models/summoner.js')
-const matchering = require('../util/matchering.js')
 const _ = require('lodash')
 
 const controller = {
