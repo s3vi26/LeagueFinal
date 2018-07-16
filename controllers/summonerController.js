@@ -5,8 +5,7 @@ const controller = {
     getMatchingGames: function(body) {
         return Promise.all(_.values(body).map((name) => {
             return summoner.accountBySummonerName(name)
-        })).then((bodies) => {
-          let accountIds = bodies.map((body) => { return body.data.accountId })
+        })).then((accountIds) => {
           console.log(accountIds, "ACCOUNT IDS GET MATCHING GAMES IN THEN")
             return Promise.all(accountIds.map((accountId) => {
               return summoner.matchListByAccountId(accountId)
