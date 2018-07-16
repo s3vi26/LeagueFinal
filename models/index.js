@@ -1,3 +1,3 @@
 module.exports = {
-  summonerz: require("./book")
+  summonerz: require("./summoner")
 };

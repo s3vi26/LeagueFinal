@@ -15,7 +15,6 @@ router
 
 router
   .get("/retrieve", (req, res, next) => {
-    
   })
 
 module.exports = router;

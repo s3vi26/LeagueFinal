@@ -8,14 +8,14 @@ import { Input, FormBtn } from "../../components/Form";
 
 class Summonerz extends Component {
   state = {
-    summoners: []
+      summoners: [],
+      matches: []
   };
 
   componentDidMount() {
-    this.loadSums();
   }
 
-  handleClick=event=>{
+  handleClick = (event) => {
     event.preventDefault();
     var name1=document.querySelector("#name1").value
     var name2=document.querySelector("#name2").value
@@ -25,31 +25,13 @@ class Summonerz extends Component {
       name2: name2,
     }
     console.log(sumData)
-    Promise.all([API.getSummoner(name1),API.getSummoner(name2)])
-      .then((ids) => {
-        const newSumData = {
-          accountId1: ids[0],
-          accountId2: ids[1],
-          ...sumData
-        };
-        API.saveSums(newSumData)
-          .then(res=>console.log(res.data))
+      API.getMatches(sumData).then((res) => {
+          console.log(res.data)
+          this.setState({matches: res.data})
       })
-
-   // API.getSummoner()
-
-      //.then(res=>console.log(res))
-
-    //console.log("yay")
   }
 
   loadSums = () => {
-    API.getSums()
-      .then(res => this.setState({ summoners: res.data }))
-      .catch(err => console.log(err));
-
-
-  
    };
 
   render() {
@@ -67,27 +49,25 @@ class Summonerz extends Component {
               <FormBtn onClick={this.handleClick}>Submit Summoners</FormBtn>
             </form>
           </Col>
-          {/* <Col size="md-6 sm-12">
-            <Jumbotron> 
+          <Col size="md-6 sm-12">
+            <Jumbotron>
               <h1>Summoners I've Battled</h1>
             </Jumbotron>
-            {this.state.summoners.length ? (
+            {this.state.matches.length ? (
+                <div>
+                <h2>
+                {this.state.matches.length} Games in Common
+                </h2>
               <List>
-                {this.state.summoners.map(book => (
-                  <ListItem key={summoner._id}>
-                    <a href={"/books/" + summoners._id}>
-                      <strong>
-                        {book.title} by {book.author}
-                      </strong>
-                    </a>
-                    <DeleteBtn />
-                  </ListItem>
+                {this.state.matches.map(match => (
+                  <ListItem key={match}> {match} </ListItem>
                 ))}
-              </List> */}
-            {/* ) : (
+              </List>
+                </div>
+            ) : (
               <h3>No Results to Display</h3>
             )}
-          </Col> */}
+          </Col>
         </Row>
         <FormBtn onClick={this.handleClick}>API</FormBtn>
       </Container>

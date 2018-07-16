@@ -1,7 +1,6 @@
 const router = require("express").Router();
-const sumRoutes = require("./books");
+const summonerRoutes = require("./summoner")
 
-// Book routes
-router.use("/summoners", sumRoutes);
+router.use("/summoners", summonerRoutes);
 
 module.exports = router;
